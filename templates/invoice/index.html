@@ -1,0 +1,101 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zao Kuu Learning Invoicing System Create your own invoice online">
+    <meta name="author" content="Zao Kuu Learning">
+    <title>Zao Kuu</title>
+
+    <link rel="canonical" href="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/header.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/features.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/sticky-footer-navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/features.css' %}" rel="stylesheet">
+  </head>
+
+
+  <body class="d-flex flex-column h-100">
+
+
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 text-secondary"></a></li>
+            <li><a href="#" class="nav-link px-2 text-white"></a></li>
+            <li><a href="#" class="nav-link px-2 text-white"></a></li>
+            <li><a href="#" class="nav-link px-2 text-white"></a></li>
+            <li><a href="#" class="nav-link px-2 text-white"></a></li>
+          </ul>
+
+
+          <div class="text-end">
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-primary">Login</button></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- Begin page content -->
+  <main class="flex-shrink-0">
+
+<!-- The hero starts here ..... -->
+    <div class="container my-5">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1">Create an invoice online in minutes</h1>
+          <p class="lead">At Zao Kuu, we believe in the power of streamlined administration. Our admin system is designed to empower your organization with tools that simplify tasks, increase productivity, and provide actionable insights. Before you dive into the world of efficient administration, here's what you can expect from our system:
+
+          </p>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+        </div>
+      </div>
+    </div>
+<!-- The hero ends here -->
+  </main>
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="">Created by DK</span>
+    </div>
+  </footer>
+
+  <!-- JS starts here  -->
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+  </body>
+
+
+
+
+</html>
