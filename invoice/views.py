@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import *
 from .models import *
 from .functions import *
-#from .decorators import is_admin_or_staff
+from .decorators import is_admin_or_staff
 from .decorators import admin_or_staff_required 
 
 from django.contrib.auth.models import User, auth
@@ -16,6 +16,8 @@ from uuid import uuid4
 from django.http import HttpResponse
 
 import pdfkit 
+config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+
 from django.template.loader import get_template
 import os
 
@@ -92,7 +94,6 @@ def invoices(request):
     context['invoices'] = invoices
 
     return render(request, 'invoice/invoices.html', context)
-
 
 @login_required
 def products(request):
@@ -405,10 +406,6 @@ def emailDocumentInvoice(request, slug):
 
 
 
-
-
-
-@admin_or_staff_required
 def deleteInvoice(request, slug):
     try:
         Invoice.objects.get(slug=slug).delete()

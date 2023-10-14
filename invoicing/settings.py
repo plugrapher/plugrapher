@@ -10,10 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import pdfkit
-import heroku
-import dj_database_url
+config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
 
-from decouple import config
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
@@ -156,8 +154,6 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 CSS_LOCATION = os.path.join(BASE_DIR,'static')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStatic'
-
 #Dynamic files and documents
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/uploads/'
@@ -175,12 +171,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
  #SMTP Configure
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'  # Use 'smtp.gmail.com' for Gmail
 EMAIL_PORT = 587
+EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'dikkymccria@gmail.com'
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
+EMAIL_HOST_USER = 'plugrapher@gmail.com'
+EMAIL_HOST_PASSWORD = 'amlixtzbunuefycy'
+DEFAULT_FROM_EMAIL = 'plugrapher@gmail.com'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_HOST = os.environ.get('smtp.gmail.com')
@@ -189,6 +186,3 @@ DEFAULT_FROM_EMAIL = ''
 #DEFAULT_FROM_EMAIL = os.environ.get('dikkymccria@gmail.com')
 #EMAIL_PORT = 587
 #EMAIL_HOST_PASSWORD = os.environ.get('Slimedikky1')
-
-
-django_heroku.settings(locals())

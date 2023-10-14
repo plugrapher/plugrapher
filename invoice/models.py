@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 class Client(models.Model):
 
-    PROVINCES = [
+    COUNTY = [
     ('Nairobi', 'Nairobi'),
     ('Nakuru', 'Nakuru'),
     ('Eldoret', 'Eldoret'),
@@ -20,7 +20,7 @@ class Client(models.Model):
     clientName = models.CharField(null=True, blank=True, max_length=200)
     addressLine1 = models.CharField(null=True, blank=True, max_length=200)
     clientLogo  = models.ImageField(default='default_logo.jpg', upload_to='company_logos')
-    province = models.CharField(choices=PROVINCES, blank=True, max_length=100)
+    county = models.CharField(choices=COUNTY, blank=True, max_length=100)
     postalCode = models.CharField(null=True, blank=True, max_length=10)
     phoneNumber = models.CharField(null=True, blank=True, max_length=100)
     emailAddress = models.CharField(null=True, blank=True, max_length=100)
@@ -35,7 +35,7 @@ class Client(models.Model):
 
 
     def __str__(self):
-        return '{} {} {}'.format(self.clientName, self.province, self.uniqueId)
+        return '{} {} {}'.format(self.clientName, self.county, self.uniqueId)
 
 
     def get_absolute_url(self):
@@ -47,9 +47,9 @@ class Client(models.Model):
             self.date_created = timezone.localtime(timezone.now())
         if self.uniqueId is None:
             self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
+            self.slug = slugify('{} {} {}'.format(self.clientName, self.county, self.uniqueId))
 
-        self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
+        self.slug = slugify('{} {} {}'.format(self.clientName, self.county, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
 
         super(Client, self).save(*args, **kwargs)
@@ -187,7 +187,7 @@ class Product(models.Model):
 
 class Settings(models.Model):
 
-    PROVINCES = [
+    COUNTY = [
     ('Nairobi', 'Nairobi'),
     ('Nakuru', 'Nakuru'),
     ('Eldoret', 'Eldoret'),
@@ -200,7 +200,7 @@ class Settings(models.Model):
     clientName = models.CharField(null=True, blank=True, max_length=200)
     clientLogo = models.ImageField(default='default_logo.jpg', upload_to='company_logos')
     addressLine1 = models.CharField(null=True, blank=True, max_length=200)
-    province = models.CharField(choices=PROVINCES, blank=True, max_length=100)
+    county = models.CharField(choices=COUNTY, blank=True, max_length=100)
     postalCode = models.CharField(null=True, blank=True, max_length=10)
     phoneNumber = models.CharField(null=True, blank=True, max_length=100)
     emailAddress = models.CharField(null=True, blank=True, max_length=100)
@@ -215,7 +215,7 @@ class Settings(models.Model):
 
 
     def __str__(self):
-        return '{} {} {}'.format(self.clientName, self.province, self.uniqueId)
+        return '{} {} {}'.format(self.clientName, self.county, self.uniqueId)
 
 
     def get_absolute_url(self):
@@ -227,9 +227,9 @@ class Settings(models.Model):
             self.date_created = timezone.localtime(timezone.now())
         if self.uniqueId is None:
             self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
+            self.slug = slugify('{} {} {}'.format(self.clientName, self.county, self.uniqueId))
 
-        self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
+        self.slug = slugify('{} {} {}'.format(self.clientName, self.county, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
 
         super(Settings, self).save(*args, **kwargs)

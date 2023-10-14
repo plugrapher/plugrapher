@@ -31,7 +31,7 @@ class UserLoginForm(forms.ModelForm):
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['clientName', 'clientLogo', 'addressLine1', 'province', 'postalCode', 'phoneNumber', 'emailAddress', 'taxNumber']
+        fields = ['clientName', 'clientLogo', 'addressLine1', 'county', 'postalCode', 'phoneNumber', 'emailAddress', 'taxNumber']
 
 
 
@@ -107,7 +107,7 @@ class InvoiceForm(forms.ModelForm):
 class SettingsForm(forms.ModelForm):
     class Meta:
         model = Settings
-        fields = ['clientName', 'clientLogo', 'addressLine1', 'province', 'postalCode', 'phoneNumber', 'emailAddress', 'taxNumber']
+        fields = ['clientName', 'clientLogo', 'addressLine1', 'county', 'postalCode', 'phoneNumber', 'emailAddress', 'taxNumber']
 
 
 class ClientSelectForm(forms.ModelForm):
